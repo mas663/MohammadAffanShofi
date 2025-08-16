@@ -15,14 +15,12 @@ export default function Projects() {
             className="group relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.03] transition hover:-translate-y-0.5 hover:bg-white/[0.05]"
           >
             <div className="grid grid-cols-[120px_1fr] gap-4 p-5 md:grid-cols-[160px_1fr]">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/30 to-indigo-500/20" />
+              <div className="relative w-full aspect-video flex items-center justify-center">
                 <Image
                   src={p.image || "/placeholder.png"}
                   alt={p.title}
-                  width={160}
-                  height={144}
-                  className="relative h-28 w-full rounded-2xl object-cover ring-1 ring-white/10 md:h-36"
+                  fill
+                  className="object-contain rounded-t-3xl ring-1 ring-white/10 bg-black"
                 />
               </div>
               <div>

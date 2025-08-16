@@ -72,7 +72,7 @@ export const PROJECTS: {
     title: "Website Personal Portofolio | MAS",
     desc: "A responsive, dynamic personal portfolio website built for showcasing branding, skills, experiences, and projects.",
     href: "#",
-    image: "/projects/portfolio.png",
+    image: "/projects/portofolio1.png",
     tags: ["Next.js", "Tailwind", "TypeScript"],
   },
   {
