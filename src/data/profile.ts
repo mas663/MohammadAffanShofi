@@ -1,5 +1,6 @@
 export const PROFILE = {
   name: "Mohammad Affan Shofi",
+  username: "Affan",
   tagline: "Aspiring Full‑Stack Developer",
   avatar: "/avatar.jpg",
   about:

@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: subject || `New message from ${name}`,
+      subject: subject || `New message from ${email}`,
       replyTo: email,
       html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin:auto; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden;">

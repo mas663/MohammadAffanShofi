@@ -3,7 +3,7 @@ import { SKILLS } from "../data/profile";
 
 export default function Skills() {
   return (
-    <Section id="skills" title="Skill">
+    <Section id="skills" title="Skills">
       <div className="flex flex-wrap gap-2">
         {SKILLS.map((s) => (
           <span
