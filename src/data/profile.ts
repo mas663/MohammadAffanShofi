@@ -9,7 +9,8 @@ export const PROFILE = {
     github: "https://github.com/mas663",
     linkedin: "https://www.linkedin.com/in/mohammad-affan-shofi-4108ba249",
     mail: "mailto:affan.shofi62@gmail.com",
-    instagram: "https://instagram.com/maffanshofi",
+    instagram: "https://instagram.com/mohammadaffans",
+    whatsapp: "https://wa.me/6281336464103",
   },
 };
 
@@ -91,7 +92,7 @@ export const PROJECTS: {
     tags: ["Laravel", "Bootstrap"],
   },
   {
-    title: "NotedPak! | Tether",
+    title: "NotedPak! | Tekber",
     desc: "Flutter + Firebase notes app with tagging, real‑time sync, and responsive design.",
     href: "#",
     image: "/projects/notedpak.png",
