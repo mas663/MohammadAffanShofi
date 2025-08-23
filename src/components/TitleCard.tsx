@@ -4,9 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 
 interface TiltedCardProps {
-  /** optional image; kalau tidak ada kita render icon + glow */
   imageSrc?: React.ComponentProps<"img">["src"];
-  /** untuk mode icon */
   icon?: React.ReactNode;
 
   altText?: string;
@@ -20,7 +18,6 @@ interface TiltedCardProps {
   scaleOnHover?: number;
   rotateAmplitude?: number;
 
-  /** warna glow; default sesuai tema (sky) */
   glowColor?: string;
 
   showMobileWarning?: boolean;
@@ -47,7 +44,7 @@ export default function TiltedCard({
   imageWidth = "120px",
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
-  glowColor = "rgb(56 189 248 / 0.55)", // sky-400
+  glowColor = "rgb(56 189 248 / 0.55)",
   showMobileWarning = false,
   showTooltip = true,
   overlayContent = null,
@@ -128,7 +125,7 @@ export default function TiltedCard({
         {/* --- Base card --- */}
         <div className="absolute inset-0 rounded-2xl bg-white/[0.04] border border-white/10 ring-1 ring-inset ring-white/5" />
 
-        {/* --- Glow (mengikuti tema) --- */}
+        {/* --- Glow --- */}
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -inset-6 rounded-[28px] blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
