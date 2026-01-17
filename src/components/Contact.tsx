@@ -11,7 +11,6 @@ import {
   Linkedin,
   Github,
   ArrowUpRight,
-  MessageCircle,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, MotionConfig } from "framer-motion";
@@ -39,7 +38,7 @@ export default function ContactForm() {
   });
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<null | { ok: boolean; text: string }>(
-    null
+    null,
   );
   const [copied, setCopied] = useState(false);
 
