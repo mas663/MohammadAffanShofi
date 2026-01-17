@@ -11,6 +11,15 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Allow CSS custom properties (CSS variables) via style attribute
+      // This is necessary for dynamic theming and is the recommended approach
+      "react/forbid-component-props": "off",
+      "react/forbid-dom-props": "off",
+      "@typescript-eslint/no-explicit-any": "error",
+    },
+  },
 ];
 
 export default eslintConfig;
