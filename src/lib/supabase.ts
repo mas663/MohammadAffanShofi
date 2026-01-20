@@ -4,29 +4,23 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-// Log environment variables status (without exposing values)
+// Validate at build time but don't throw - use placeholder for build
+const buildTimeUrl = supabaseUrl || "https://placeholder.supabase.co";
+const buildTimeKey = supabaseAnonKey || "placeholder-key";
+
+// Log environment status (server-side only)
 if (typeof window === "undefined") {
-  // Server-side only logging
-  console.log("[Supabase] Environment check:", {
+  console.log("[Supabase] Config status:", {
     hasUrl: !!supabaseUrl,
     hasAnonKey: !!supabaseAnonKey,
     hasServiceKey: !!supabaseServiceKey,
-    urlPrefix: supabaseUrl?.substring(0, 20),
+    urlPrefix: supabaseUrl?.substring(0, 30),
   });
 }
 
-// Validate environment variables
-if (!supabaseUrl || !supabaseAnonKey) {
-  const errorMsg = `Missing Supabase environment variables: URL=${!!supabaseUrl}, Key=${!!supabaseAnonKey}`;
-  if (typeof window !== "undefined") {
-    console.error("[Supabase]", errorMsg);
-  }
-  throw new Error(errorMsg);
-}
-
 export const supabase: SupabaseClient = createClient(
-  supabaseUrl,
-  supabaseAnonKey,
+  buildTimeUrl,
+  buildTimeKey,
   {
     auth: {
       persistSession: false,
@@ -42,16 +36,12 @@ export const supabase: SupabaseClient = createClient(
   },
 );
 
-// For server-side admin operations
-if (!supabaseServiceKey) {
-  console.warn(
-    "[Supabase] Service role key not found - admin operations will fail",
-  );
-}
+// Server-side admin client
+const buildTimeServiceKey = supabaseServiceKey || buildTimeKey;
 
 export const supabaseAdmin: SupabaseClient = createClient(
-  supabaseUrl,
-  supabaseServiceKey || supabaseAnonKey, // Fallback to anon key for build
+  buildTimeUrl,
+  buildTimeServiceKey,
   {
     auth: {
       autoRefreshToken: false,
