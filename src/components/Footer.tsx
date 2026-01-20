@@ -1,11 +1,14 @@
+"use client";
+
 import { useMemo } from "react";
-import { PROFILE } from "../data/profile";
+import { useProfile } from "@/contexts/ProfileContext";
 
 export default function Footer() {
+  const { profile } = useProfile();
   const year = useMemo(() => new Date().getFullYear(), []);
   return (
     <footer className="border-t border-white/5 py-10 text-center text-sm text-neutral-400">
-      © {year} {PROFILE.name}.
+      © {year} {profile?.name || "Portfolio"}.
     </footer>
   );
 }

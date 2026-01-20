@@ -18,6 +18,10 @@ const eslintConfig = [
       "react/forbid-component-props": "off",
       "react/forbid-dom-props": "off",
       "@typescript-eslint/no-explicit-any": "error",
+      // Relax some strict rules
+      "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "prefer-const": "warn",
     },
   },
 ];

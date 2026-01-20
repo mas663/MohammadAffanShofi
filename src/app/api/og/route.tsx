@@ -12,70 +12,68 @@ export async function GET(req: Request) {
 
   try {
     return new ImageResponse(
-      (
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "60px",
+          color: "#fff",
+          background:
+            "linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #0b1220 100%)",
+        }}
+      >
         <div
-          style={{
-            width: 1200,
-            height: 630,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "60px",
-            color: "#fff",
-            background:
-              "linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #0b1220 100%)",
-          }}
+          style={{ display: "flex", flexDirection: "column", maxWidth: 800 }}
         >
-          <div style={{ display: "flex", flexDirection: "column", maxWidth: 800 }}>
-            <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.1 }}>
-              Mohammad Affan Shofi
-            </div>
-            <div style={{ fontSize: 28, opacity: 0.95, marginTop: 12 }}>
-              Frontend • DevOps • Mobile
-            </div>
-            <div style={{ fontSize: 20, opacity: 0.8, marginTop: 18 }}>
-              mohammad-affan-shofi.vercel.app
-            </div>
+          <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.1 }}>
+            Mohammad Affan Shofi
           </div>
-
-          <img
-            src={avatar}
-            alt="Portrait of Mohammad Affan Shofi"
-            title="Mohammad Affan Shofi"
-            width={220}
-            height={220}
-            style={{
-              borderRadius: 9999,
-              border: "8px solid rgba(255,255,255,.25)",
-              boxShadow: "0 15px 40px rgba(0,0,0,.35)",
-              objectFit: "cover",
-            }}
-          />
+          <div style={{ fontSize: 28, opacity: 0.95, marginTop: 12 }}>
+            Frontend • DevOps • Mobile
+          </div>
+          <div style={{ fontSize: 20, opacity: 0.8, marginTop: 18 }}>
+            mohammad-affan-shofi.vercel.app
+          </div>
         </div>
-      ),
-      { width: 1200, height: 630 }
+
+        <img
+          src={avatar}
+          alt="Portrait of Mohammad Affan Shofi"
+          title="Mohammad Affan Shofi"
+          width={220}
+          height={220}
+          style={{
+            borderRadius: 9999,
+            border: "8px solid rgba(255,255,255,.25)",
+            boxShadow: "0 15px 40px rgba(0,0,0,.35)",
+            objectFit: "cover",
+          }}
+        />
+      </div>,
+      { width: 1200, height: 630 },
     );
   } catch (err) {
     console.error("OG render failed:", err);
     return new ImageResponse(
-      (
-        <div
-          style={{
-            width: 1200,
-            height: 630,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "#0b1220",
-            color: "#fff",
-            fontSize: 48,
-            fontWeight: 700,
-          }}
-        >
-          Mohammad Affan Shofi
-        </div>
-      ),
-      { width: 1200, height: 630 }
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#0b1220",
+          color: "#fff",
+          fontSize: 48,
+          fontWeight: 700,
+        }}
+      >
+        Mohammad Affan Shofi
+      </div>,
+      { width: 1200, height: 630 },
     );
   }
 }

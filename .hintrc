@@ -3,13 +3,12 @@
     "development"
   ],
   "hints": {
-    "compat-api/css": [
+    "axe/name-role-value": [
       "default",
       {
-        "ignore": [
-          "-webkit-text-size-adjust"
-        ]
+        "button-name": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }

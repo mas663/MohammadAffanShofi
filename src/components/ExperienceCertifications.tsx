@@ -1,11 +1,39 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Section from "./Section";
-import { CERTS } from "../data/profile";
 import { Award } from "lucide-react";
 
+type Certification = {
+  id: string;
+  name: string;
+  href: string;
+};
+
 export default function ExperienceCertifications() {
+  const [certifications, setCertifications] = useState<Certification[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchCertifications();
+  }, []);
+
+  const fetchCertifications = async () => {
+    try {
+      const response = await fetch("/api/certifications");
+      if (response.ok) {
+        const data = await response.json();
+        setCertifications(data);
+      }
+    } catch (error) {
+      console.error("Error fetching certifications:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Section id="experience" title="Experience & Involvement">
-      {/* items-stretch -> kedua kolom sama tinggi */}
       <div className="grid grid-cols-1 gap-6 items-stretch md:grid-cols-2">
         {/* KARTU KIRI */}
         <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6">
@@ -43,26 +71,46 @@ export default function ExperienceCertifications() {
             <Award className="h-5 w-5" /> Certifications
           </h3>
 
-          <ul className="mt-4 space-y-3">
-            {CERTS.map((c) => (
-              <li
-                key={c.name}
-                className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
-              >
-                <span className="text-sm leading-snug text-neutral-200">
-                  {c.name}
-                </span>
+          {loading ? (
+            <div className="text-center text-neutral-400 py-12">
+              Loading certifications...
+            </div>
+          ) : certifications.length === 0 ? (
+            <div className="text-center text-neutral-400 py-12">
+              No certifications yet.
+            </div>
+          ) : (
+            <ul className="mt-4 space-y-3">
+              {certifications.map((c) => {
+                const hasLink = c.href && c.href.trim() !== "";
+                return (
+                  <li
+                    key={c.id}
+                    className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+                  >
+                    <span className="text-sm leading-snug text-neutral-200">
+                      {c.name}
+                    </span>
 
-                <a
-                  href={c.href}
-                  target="_blank"
-                  className="shrink-0 inline-flex items-center justify-center rounded-md border border-sky-500/40 bg-sky-500/10 px-3 py-1.5 text-xs font-medium text-sky-300 hover:bg-sky-500/15"
-                >
-                  Lihat Sertifikat
-                </a>
-              </li>
-            ))}
-          </ul>
+                    {hasLink ? (
+                      <a
+                        href={c.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shrink-0 inline-flex items-center justify-center rounded-md border border-sky-500/40 bg-sky-500/10 px-3 py-1.5 text-xs font-medium text-sky-300 hover:bg-sky-500/15 cursor-pointer"
+                      >
+                        Lihat Sertifikat
+                      </a>
+                    ) : (
+                      <span className="shrink-0 inline-flex items-center justify-center rounded-md border border-neutral-500/20 bg-neutral-500/5 px-3 py-1.5 text-xs font-medium text-neutral-500 cursor-not-allowed">
+                        No Link
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
     </Section>
