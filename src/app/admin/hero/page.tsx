@@ -42,7 +42,9 @@ export default function HeroAdminPage() {
 
   const fetchHeroData = async () => {
     try {
-      const response = await fetch("/api/admin/hero");
+      const response = await fetch("/api/admin/hero", {
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         setHeroData({
@@ -68,6 +70,7 @@ export default function HeroAdminPage() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(heroData),
+        credentials: "include",
       });
 
       if (response.ok) {

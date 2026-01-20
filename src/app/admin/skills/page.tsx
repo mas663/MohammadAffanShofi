@@ -135,7 +135,9 @@ export default function SkillsPage() {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch("/api/admin/skills");
+      const response = await fetch("/api/admin/skills", {
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         setSkills(data);
@@ -165,6 +167,7 @@ export default function SkillsPage() {
           body: JSON.stringify({
             skills: newOrder.map((s, idx) => ({ ...s, order_index: idx })),
           }),
+          credentials: "include",
         });
         setToast({
           message: "Skills reordered successfully!",
@@ -188,6 +191,7 @@ export default function SkillsPage() {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
+          credentials: "include",
         });
 
         if (response.ok) {
@@ -200,6 +204,7 @@ export default function SkillsPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
+          credentials: "include",
         });
 
         if (response.ok) {
@@ -222,6 +227,7 @@ export default function SkillsPage() {
     try {
       const response = await fetch(`/api/admin/skills/${id}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       if (response.ok) {

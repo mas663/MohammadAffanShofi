@@ -137,7 +137,9 @@ export default function CertificationsPage() {
 
   const fetchCertifications = async () => {
     try {
-      const response = await fetch("/api/admin/certifications");
+      const response = await fetch("/api/admin/certifications", {
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         setCertifications(data);
@@ -170,6 +172,7 @@ export default function CertificationsPage() {
               order_index: idx,
             })),
           }),
+          credentials: "include",
         });
         setToast({
           message: "Certifications reordered successfully!",
@@ -201,6 +204,7 @@ export default function CertificationsPage() {
         const uploadResponse = await fetch("/api/admin/upload", {
           method: "POST",
           body: uploadFormData,
+          credentials: "include",
         });
 
         if (uploadResponse.ok) {
@@ -223,6 +227,7 @@ export default function CertificationsPage() {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dataToSave),
+            credentials: "include",
           },
         );
 
@@ -239,6 +244,7 @@ export default function CertificationsPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSave),
+          credentials: "include",
         });
 
         if (response.ok) {
@@ -264,6 +270,7 @@ export default function CertificationsPage() {
     try {
       const response = await fetch(`/api/admin/certifications/${id}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       if (response.ok) {

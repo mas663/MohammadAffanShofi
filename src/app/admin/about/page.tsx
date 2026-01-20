@@ -42,7 +42,9 @@ export default function AboutAdminPage() {
 
   const fetchAboutData = async () => {
     try {
-      const response = await fetch("/api/admin/about");
+      const response = await fetch("/api/admin/about", {
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         setAboutData(data);
@@ -61,6 +63,7 @@ export default function AboutAdminPage() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(aboutData),
+        credentials: "include",
       });
 
       if (response.ok) {

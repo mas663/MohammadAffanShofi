@@ -158,7 +158,9 @@ export default function ProjectsPage() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("/api/admin/projects");
+      const response = await fetch("/api/admin/projects", {
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         setProjects(data);
@@ -188,6 +190,7 @@ export default function ProjectsPage() {
           body: JSON.stringify({
             projects: newOrder.map((p, idx) => ({ ...p, order_index: idx })),
           }),
+          credentials: "include",
         });
         setToast({
           message: "Projects reordered successfully!",
@@ -213,6 +216,7 @@ export default function ProjectsPage() {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
+            credentials: "include",
           },
         );
 
@@ -229,6 +233,7 @@ export default function ProjectsPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
+          credentials: "include",
         });
 
         if (response.ok) {
@@ -254,6 +259,7 @@ export default function ProjectsPage() {
     try {
       const response = await fetch(`/api/admin/projects/${id}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       if (response.ok) {
