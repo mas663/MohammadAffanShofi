@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { writeFile } from "fs/promises";
-import { join } from "path";
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
@@ -20,22 +19,34 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
     // Generate unique filename
     const timestamp = Date.now();
     const originalName = file.name.replace(/\s+/g, "-");
     const filename = `${timestamp}-${originalName}`;
-    const filepath = join(process.cwd(), "public", "uploads", filename);
 
-    // Write file
-    await writeFile(filepath, buffer);
+    // Convert file to buffer
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
 
-    // Return public URL
-    const url = `/uploads/${filename}`;
+    // Upload to Supabase Storage
+    const { data, error } = await supabaseAdmin.storage
+      .from("portfolio")
+      .upload(filename, buffer, {
+        contentType: file.type,
+        upsert: false,
+      });
 
-    return NextResponse.json({ url });
+    if (error) {
+      console.error("Supabase upload error:", error);
+      throw error;
+    }
+
+    // Get public URL
+    const {
+      data: { publicUrl },
+    } = supabaseAdmin.storage.from("portfolio").getPublicUrl(data.path);
+
+    return NextResponse.json({ url: publicUrl });
   } catch (error) {
     console.error("Error uploading file:", error);
     return NextResponse.json(

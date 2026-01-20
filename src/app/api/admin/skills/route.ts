@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET() {
   try {
+    // Check admin session from cookies
+    const cookieStore = await cookies();
+    const session = cookieStore.get("admin-session");
+
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { data, error } = await supabaseAdmin
       .from("skills")
       .select("*")
@@ -22,6 +31,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    // Check admin session from cookies
+    const cookieStore = await cookies();
+    const session = cookieStore.get("admin-session");
+
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const body = await request.json();
 
     // Get highest order_index
