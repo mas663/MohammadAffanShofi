@@ -4,51 +4,66 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-// Create a dummy client for build time when env vars are not available
-const createDummyClient = (): SupabaseClient => {
-  return {
-    from: () => ({
-      select: () => Promise.resolve({ data: [], error: null }),
-      insert: () => Promise.resolve({ data: null, error: null }),
-      update: () => Promise.resolve({ data: null, error: null }),
-      delete: () => Promise.resolve({ data: null, error: null }),
-      upsert: () => Promise.resolve({ data: null, error: null }),
-    }),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } as any;
-};
+// Log environment variables status (without exposing values)
+if (typeof window === "undefined") {
+  // Server-side only logging
+  console.log("[Supabase] Environment check:", {
+    hasUrl: !!supabaseUrl,
+    hasAnonKey: !!supabaseAnonKey,
+    hasServiceKey: !!supabaseServiceKey,
+    urlPrefix: supabaseUrl?.substring(0, 20),
+  });
+}
 
-export const supabase: SupabaseClient =
-  supabaseUrl && supabaseAnonKey
-    ? createClient(supabaseUrl, supabaseAnonKey, {
-        auth: {
-          persistSession: false,
-        },
-        global: {
-          headers: {
-            "x-client-info": "portfolio-client",
-          },
-        },
-        db: {
-          schema: "public",
-        },
-      })
-    : createDummyClient();
+// Validate environment variables
+if (!supabaseUrl || !supabaseAnonKey) {
+  const errorMsg = `Missing Supabase environment variables: URL=${!!supabaseUrl}, Key=${!!supabaseAnonKey}`;
+  if (typeof window !== "undefined") {
+    console.error("[Supabase]", errorMsg);
+  }
+  throw new Error(errorMsg);
+}
 
-export const supabaseAdmin: SupabaseClient =
-  supabaseUrl && supabaseServiceKey
-    ? createClient(supabaseUrl, supabaseServiceKey, {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false,
-        },
-        global: {
-          headers: {
-            "x-client-info": "portfolio-admin",
-          },
-        },
-        db: {
-          schema: "public",
-        },
-      })
-    : createDummyClient();
+export const supabase: SupabaseClient = createClient(
+  supabaseUrl,
+  supabaseAnonKey,
+  {
+    auth: {
+      persistSession: false,
+    },
+    global: {
+      headers: {
+        "x-client-info": "portfolio-client",
+      },
+    },
+    db: {
+      schema: "public",
+    },
+  },
+);
+
+// For server-side admin operations
+if (!supabaseServiceKey) {
+  console.warn(
+    "[Supabase] Service role key not found - admin operations will fail",
+  );
+}
+
+export const supabaseAdmin: SupabaseClient = createClient(
+  supabaseUrl,
+  supabaseServiceKey || supabaseAnonKey, // Fallback to anon key for build
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+    global: {
+      headers: {
+        "x-client-info": "portfolio-admin",
+      },
+    },
+    db: {
+      schema: "public",
+    },
+  },
+);

@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Upload, X, FileText } from "lucide-react";
+import { useState } from "react";
 import Image from "next/image";
 
 type ImageUploadProps = {
