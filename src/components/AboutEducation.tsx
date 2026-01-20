@@ -38,15 +38,27 @@ export default function AboutEducation() {
 
   const fetchData = async () => {
     try {
-      const [aboutRes, projectsRes, certsRes] = await Promise.all([
-        fetch("/api/admin/about"),
+      const [profileRes, projectsRes, certsRes] = await Promise.all([
+        fetch("/api/profile"),
         fetch("/api/projects"),
         fetch("/api/certifications"),
       ]);
 
-      if (aboutRes.ok) {
-        const data = await aboutRes.json();
-        setAboutData(data);
+      if (profileRes.ok) {
+        const profileData = await profileRes.json();
+        // Map profile data to about data structure
+        setAboutData({
+          heading: profileData.about_heading || "About Me",
+          subtitle:
+            profileData.about_subtitle ||
+            "Transforming ideas into digital experiences",
+          name: profileData.name || "",
+          description: profileData.about || "",
+          quote: profileData.about_quote || "",
+          photo: profileData.about_photo || profileData.photo || "",
+          cvUrl: profileData.cv_url || "",
+          yearsOfExperience: profileData.years_of_experience || 0,
+        });
       }
 
       if (projectsRes.ok) {
