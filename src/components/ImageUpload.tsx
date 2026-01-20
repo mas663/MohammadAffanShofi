@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Upload, X, FileText } from "lucide-react";
+import Image from "next/image";
 
 type ImageUploadProps = {
   value: string;
@@ -155,10 +157,12 @@ export default function ImageUpload({
                 title="PDF Preview"
               />
             ) : (
-              <img
+              <Image
                 src={imagePreview}
                 alt="Preview"
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
+                unoptimized
               />
             )}
           </div>
