@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+import { cookies } from "next/headers";
 import { writeFile } from "fs/promises";
 import { join } from "path";
 
 export async function POST(request: Request) {
   try {
-    const session = await getServerSession();
+    // Check admin session from cookies
+    const cookieStore = await cookies();
+    const session = cookieStore.get("admin-session");
+
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

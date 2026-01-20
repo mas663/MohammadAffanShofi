@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET() {
   try {
-    const session = await getServerSession();
+    // Check admin session from cookies
+    const cookieStore = await cookies();
+    const session = cookieStore.get("admin-session");
+
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -42,7 +45,10 @@ export async function GET() {
 
 export async function PUT(request: Request) {
   try {
-    const session = await getServerSession();
+    // Check admin session from cookies
+    const cookieStore = await cookies();
+    const session = cookieStore.get("admin-session");
+
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
