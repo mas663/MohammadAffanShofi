@@ -15,12 +15,19 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    console.log("[Hero GET] Fetching profile data from Supabase...");
+
     const { data, error } = await supabaseAdmin
       .from("profile")
       .select("*")
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error("[Hero GET] Supabase error:", error);
+      throw error;
+    }
+
+    console.log("[Hero GET] Profile data fetched successfully");
 
     // Map database fields to expected hero fields
     const heroData = {
@@ -31,6 +38,8 @@ export async function GET() {
       job_titles: data.job_titles || [],
       tech_stack: data.tech_stack || [],
     };
+
+    console.log("[Hero GET] Returning hero data");
 
     return NextResponse.json(heroData);
   } catch (error) {

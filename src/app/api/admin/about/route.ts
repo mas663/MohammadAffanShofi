@@ -15,13 +15,20 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    console.log("[About GET] Fetching profile data from Supabase...");
+
     const { data, error } = await supabaseAdmin
       .from("profile")
       .select("*")
       .limit(1)
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error("[About GET] Supabase error:", error);
+      throw error;
+    }
+
+    console.log("[About GET] Profile data fetched successfully");
 
     // Map database fields to expected about fields
     const aboutData = {
@@ -35,6 +42,8 @@ export async function GET() {
       cvUrl: data.cv_url || "",
       yearsOfExperience: data.years_of_experience || 0,
     };
+
+    console.log("[About GET] Returning about data");
 
     return NextResponse.json(aboutData);
   } catch (error) {
