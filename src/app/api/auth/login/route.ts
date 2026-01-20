@@ -16,16 +16,20 @@ export async function POST(request: Request) {
         expires_at: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
       };
 
+      console.log("[Login] Setting admin session cookie");
+
       const response = NextResponse.json({ user: session.user, session });
 
-      // Set session cookie
+      // Set session cookie with proper settings for production
       response.cookies.set("admin-session", JSON.stringify(session), {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        secure: true, // Always use secure in production
+        sameSite: "strict", // Prevent CSRF attacks
         maxAge: 24 * 60 * 60, // 24 hours
         path: "/",
       });
+
+      console.log("[Login] Cookie set successfully");
 
       return response;
     } else {

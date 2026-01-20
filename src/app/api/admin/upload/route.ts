@@ -8,7 +8,10 @@ export async function POST(request: Request) {
     const cookieStore = await cookies();
     const session = cookieStore.get("admin-session");
 
+    console.log("[Upload POST] Cookie present:", !!session);
+
     if (!session) {
+      console.log("[Upload POST] Unauthorized - no session cookie");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

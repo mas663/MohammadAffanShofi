@@ -8,7 +8,10 @@ export async function GET() {
     const cookieStore = await cookies();
     const session = cookieStore.get("admin-session");
 
+    console.log("[About GET] Cookie present:", !!session);
+
     if (!session) {
+      console.log("[About GET] Unauthorized - no session cookie");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
