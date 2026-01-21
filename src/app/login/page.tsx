@@ -45,7 +45,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-neutral-950 via-indigo-950/20 to-neutral-950 flex items-center justify-center p-4 overflow-hidden">
+    <div className="relative min-h-screen bg-linear-to-br from-neutral-950 via-indigo-950/20 to-neutral-950 flex items-center justify-center p-4 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -84,10 +84,10 @@ export default function LoginPage() {
         <div className="bg-neutral-900/50 backdrop-blur-xl rounded-2xl border border-white/10 p-8 shadow-2xl">
           {/* Header with gradient */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 mb-4">
               <Lock className="w-8 h-8 text-indigo-400" />
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl font-bold bg-linear-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
               Admin Login
             </h1>
             <p className="text-neutral-400 text-sm">
@@ -100,7 +100,7 @@ export default function LoginPage() {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 p-4 bg-gradient-to-r from-red-500/10 to-rose-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm backdrop-blur-sm"
+              className="mb-6 p-4 bg-linear-to-r from-red-500/10 to-rose-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm backdrop-blur-sm"
             >
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
@@ -165,9 +165,9 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="relative w-full py-3.5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 disabled:from-indigo-500/50 disabled:to-purple-500/50 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:scale-100 overflow-hidden group"
+              className="relative w-full py-3.5 bg-linear-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 disabled:from-indigo-500/50 disabled:to-purple-500/50 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:scale-100 overflow-hidden group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <span className="relative">
                 {loading ? (
                   <div className="flex items-center justify-center gap-2">
@@ -183,8 +183,8 @@ export default function LoginPage() {
         </div>
 
         {/* Decorative element */}
-        <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-4 -right-4 w-24 h-24 bg-linear-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-linear-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl pointer-events-none" />
       </motion.div>
     </div>
   );

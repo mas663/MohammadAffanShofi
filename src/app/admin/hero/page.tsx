@@ -139,8 +139,8 @@ export default function HeroAdminPage() {
         <div
           className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-xl px-6 py-4 shadow-2xl backdrop-blur-sm border animate-in slide-in-from-top-5 fade-in duration-300 ${
             toast.type === "success"
-              ? "bg-gradient-to-r from-green-500/90 to-emerald-500/90 border-green-400/20 text-white"
-              : "bg-gradient-to-r from-red-500/90 to-rose-500/90 border-red-400/20 text-white"
+              ? "bg-linear-to-r from-green-500/90 to-emerald-500/90 border-green-400/20 text-white"
+              : "bg-linear-to-r from-red-500/90 to-rose-500/90 border-red-400/20 text-white"
           }`}
         >
           <div className="flex items-center gap-3">
@@ -157,7 +157,7 @@ export default function HeroAdminPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
             <Home className="w-8 h-8 text-indigo-400" />
             Hero Section
           </h1>
@@ -168,7 +168,7 @@ export default function HeroAdminPage() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-linear-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {saving ? (
             <>
@@ -188,7 +188,7 @@ export default function HeroAdminPage() {
         {/* Left Column - Text Content */}
         <div className="space-y-6">
           {/* Greeting */}
-          <div className="rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-indigo-500/20 bg-linear-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
             <label className="mb-3 text-sm font-bold text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-indigo-400" />
               Greeting (Optional)
@@ -205,7 +205,7 @@ export default function HeroAdminPage() {
           </div>
 
           {/* Role */}
-          <div className="rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-indigo-500/20 bg-linear-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
             <label className="mb-3 text-sm font-bold text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-purple-400" />
               Role / Title (Optional)
@@ -226,7 +226,7 @@ export default function HeroAdminPage() {
           </div>
 
           {/* Bio */}
-          <div className="rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-indigo-500/20 bg-linear-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
             <label className="mb-3 text-sm font-bold text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-pink-400" />
               Bio (Optional)
@@ -243,7 +243,7 @@ export default function HeroAdminPage() {
           </div>
 
           {/* Job Titles (Typing Effect) */}
-          <div className="rounded-xl border border-sky-500/20 bg-gradient-to-br from-sky-500/5 to-cyan-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-sky-500/20 bg-linear-to-br from-sky-500/5 to-cyan-500/5 p-6 backdrop-blur-sm">
             <label className="mb-3 text-sm font-bold text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-sky-400" />
               Job Titles (Typing Effect)
@@ -265,7 +265,7 @@ export default function HeroAdminPage() {
               <button
                 onClick={addJobTitle}
                 aria-label="Add job title"
-                className="rounded-lg bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3 text-white hover:from-sky-600 hover:to-cyan-600 font-semibold shadow-lg transition-all flex items-center gap-2"
+                className="rounded-lg bg-linear-to-r from-sky-500 to-cyan-500 px-6 py-3 text-white hover:from-sky-600 hover:to-cyan-600 font-semibold shadow-lg transition-all flex items-center gap-2"
               >
                 <Plus className="h-5 w-5" />
               </button>
@@ -275,7 +275,7 @@ export default function HeroAdminPage() {
               {heroData.job_titles.map((title, index) => (
                 <div
                   key={index}
-                  className="group flex items-center justify-between rounded-lg border border-sky-500/20 bg-gradient-to-r from-sky-500/10 to-cyan-500/10 px-4 py-3 hover:border-sky-500/40 transition"
+                  className="group flex items-center justify-between rounded-lg border border-sky-500/20 bg-linear-to-r from-sky-500/10 to-cyan-500/10 px-4 py-3 hover:border-sky-500/40 transition"
                 >
                   <span className="text-white font-medium">{title}</span>
                   <button
@@ -291,7 +291,7 @@ export default function HeroAdminPage() {
           </div>
 
           {/* Tech Stack Pills */}
-          <div className="rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-violet-500/20 bg-linear-to-br from-violet-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
             <label className="mb-3 text-sm font-bold text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-violet-400" />
               Tech Stack Pills
@@ -313,7 +313,7 @@ export default function HeroAdminPage() {
               <button
                 onClick={addTechStack}
                 aria-label="Add tech stack"
-                className="rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-3 text-white hover:from-violet-600 hover:to-purple-600 font-semibold shadow-lg transition-all flex items-center gap-2"
+                className="rounded-lg bg-linear-to-r from-violet-500 to-purple-500 px-6 py-3 text-white hover:from-violet-600 hover:to-purple-600 font-semibold shadow-lg transition-all flex items-center gap-2"
               >
                 <Plus className="h-5 w-5" />
               </button>
@@ -323,7 +323,7 @@ export default function HeroAdminPage() {
               {heroData.tech_stack.map((tech, index) => (
                 <div
                   key={index}
-                  className="group flex items-center gap-2 rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/10 to-purple-500/10 px-4 py-2 hover:border-violet-500/50 hover:from-violet-500/20 hover:to-purple-500/20 transition"
+                  className="group flex items-center gap-2 rounded-full border border-violet-500/30 bg-linear-to-r from-violet-500/10 to-purple-500/10 px-4 py-2 hover:border-violet-500/50 hover:from-violet-500/20 hover:to-purple-500/20 transition"
                 >
                   <span className="text-sm text-white font-medium">{tech}</span>
                   <button
@@ -341,7 +341,7 @@ export default function HeroAdminPage() {
 
         {/* Right Column - Photo */}
         <div className="space-y-6">
-          <div className="rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-indigo-500/20 bg-linear-to-br from-indigo-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
             <ImageUpload
               value={heroData.photo}
               onChange={(value) =>

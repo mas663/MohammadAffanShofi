@@ -36,13 +36,13 @@ export default function ExperienceCertifications() {
     <Section id="experience" title="Experience & Involvement">
       <div className="grid grid-cols-1 gap-6 items-stretch md:grid-cols-2">
         {/* KARTU KIRI */}
-        <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+        <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/3 p-6">
           <h3 className="flex items-center gap-2 text-white">
             <Award className="h-5 w-5" /> Organizational Involvement
           </h3>
 
           <ul className="mt-4 space-y-4">
-            <li className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+            <li className="rounded-xl border border-white/10 bg-white/3 p-4">
               <p className="font-semibold leading-tight">
                 Information System Expo! 2024 – Staff (Apr 2024 – Dec 2024).
               </p>
@@ -52,7 +52,7 @@ export default function ExperienceCertifications() {
               </p>
             </li>
 
-            <li className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+            <li className="rounded-xl border border-white/10 bg-white/3 p-4">
               <p className="font-semibold leading-tight">
                 Wiratek Internship Program – Frontend Developer (Jul 2025 – Jul
                 2025).
@@ -66,7 +66,7 @@ export default function ExperienceCertifications() {
         </div>
 
         {/* KARTU KANAN */}
-        <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+        <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/3 p-6">
           <h3 className="flex items-center gap-2 text-white">
             <Award className="h-5 w-5" /> Certifications
           </h3>
@@ -86,7 +86,7 @@ export default function ExperienceCertifications() {
                 return (
                   <li
                     key={c.id}
-                    className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+                    className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/3 px-4 py-3"
                   >
                     <span className="text-sm leading-snug text-neutral-200">
                       {c.name}

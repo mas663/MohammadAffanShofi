@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import AboutEducation from "../components/AboutEducation";
 import Portfolio from "../components/Portfolio";
+import Comments from "../components/Comments";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
@@ -16,6 +17,7 @@ export default function Page() {
         <Hero />
         <AboutEducation />
         <Portfolio />
+        <Comments />
         <Contact />
         <Footer />
       </div>

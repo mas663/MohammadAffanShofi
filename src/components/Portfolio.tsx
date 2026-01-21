@@ -114,7 +114,7 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-linear-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Portfolio Showcase
           </h2>
           <p className="text-neutral-400 text-lg">
@@ -140,7 +140,7 @@ export default function Portfolio() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   isActive
-                    ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white shadow-lg shadow-sky-500/50"
+                    ? "bg-linear-to-r from-sky-500 to-indigo-500 text-white shadow-lg shadow-sky-500/50"
                     : "bg-white/5 text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10"
                 }`}
               >
@@ -163,7 +163,7 @@ export default function Portfolio() {
               <p className="text-neutral-400">Loading...</p>
             </div>
           ) : (
-            <div className="min-h-[400px]">
+            <div className="min-h-100">
               {/* Projects Tab */}
               {activeTab === "projects" && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -200,7 +200,7 @@ export default function Portfolio() {
                             fill
                             className="object-cover group-hover:scale-110 transition-transform duration-300"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent opacity-60" />
+                          <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/50 to-transparent opacity-60" />
                         </div>
 
                         {/* Project Info */}
@@ -295,7 +295,7 @@ export default function Portfolio() {
                         </div>
 
                         {/* Certificate Info Overlay - Show on Hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 pointer-events-none">
+                        <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 pointer-events-none">
                           <h3 className="text-lg font-bold text-white mb-1">
                             {cert.name}
                           </h3>

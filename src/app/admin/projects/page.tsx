@@ -66,7 +66,7 @@ function SortableProject({
     <div
       ref={setNodeRef}
       {...attributes}
-      className={`group flex items-center gap-4 rounded-xl border border-indigo-500/20 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 p-5 hover:border-indigo-500/40 hover:from-indigo-500/10 hover:to-purple-500/10 backdrop-blur-sm transition-all ${isDragging ? "opacity-50" : ""}`}
+      className={`group flex items-center gap-4 rounded-xl border border-indigo-500/20 bg-linear-to-r from-indigo-500/5 to-purple-500/5 p-5 hover:border-indigo-500/40 hover:from-indigo-500/10 hover:to-purple-500/10 backdrop-blur-sm transition-all ${isDragging ? "opacity-50" : ""}`}
       style={
         {
           transform: CSS.Transform.toString(transform),
@@ -320,7 +320,7 @@ export default function ProjectsPage() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
             <FolderKanban className="w-8 h-8 text-indigo-400" />
             Projects Management
           </h1>
@@ -330,14 +330,14 @@ export default function ProjectsPage() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+          className="flex items-center gap-2 rounded-xl bg-linear-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
         >
           <Plus className="h-5 w-5" /> Add Project
         </button>
       </div>
 
       {projects.length === 0 ? (
-        <div className="text-center text-neutral-400 py-16 rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 backdrop-blur-sm">
+        <div className="text-center text-neutral-400 py-16 rounded-2xl border border-indigo-500/20 bg-linear-to-br from-indigo-500/5 to-purple-500/5 backdrop-blur-sm">
           <FolderKanban className="w-16 h-16 mx-auto mb-4 text-neutral-600" />
           <p className="text-lg font-medium mb-1">No projects yet</p>
           <p className="text-sm">
@@ -517,8 +517,8 @@ export default function ProjectsPage() {
         <div
           className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-xl px-6 py-4 shadow-2xl backdrop-blur-sm border animate-in slide-in-from-top-5 fade-in duration-300 ${
             toast.type === "success"
-              ? "bg-gradient-to-r from-green-500/90 to-emerald-500/90 border-green-400/20 text-white"
-              : "bg-gradient-to-r from-red-500/90 to-rose-500/90 border-red-400/20 text-white"
+              ? "bg-linear-to-r from-green-500/90 to-emerald-500/90 border-green-400/20 text-white"
+              : "bg-linear-to-r from-red-500/90 to-rose-500/90 border-red-400/20 text-white"
           }`}
         >
           <div className="flex items-center gap-3">

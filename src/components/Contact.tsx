@@ -200,13 +200,13 @@ export default function ContactForm() {
       whileFocus="hover"
       animate="rest"
       className="group relative block isolate overflow-hidden rounded-2xl
-             border border-white/10 bg-white/[0.02] ring-1 ring-inset ring-white/5
+             border border-white/10 bg-white/2 ring-1 ring-inset ring-white/5
              p-5 will-change-transform transform-gpu"
     >
       {/* glow lembut */}
       <motion.span
         variants={glowV}
-        className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${gradient}`}
+        className={`pointer-events-none absolute inset-0 -z-10 bg-linear-to-br ${gradient}`}
       />
 
       {/* corner peel – pakai w/h eksplisit */}
@@ -226,7 +226,7 @@ export default function ContactForm() {
         <div className="flex items-center justify-between">
           <motion.span
             variants={iconPulseV}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.06]"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/6"
           >
             <Icon className="h-5 w-5" />
           </motion.span>
@@ -273,7 +273,7 @@ export default function ContactForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-linear-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Let&apos;s Connect
           </h2>
           <p className="text-neutral-400 text-lg flex items-center justify-center gap-2">
@@ -309,9 +309,9 @@ export default function ContactForm() {
               viewport={{ once: false }}
               transition={{ duration: 0.6 }}
               onSubmit={onSubmit}
-              className="relative space-y-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8 backdrop-blur-sm"
+              className="relative space-y-5 rounded-2xl border border-white/10 bg-white/3 p-6 md:p-8 backdrop-blur-sm"
             >
-              <div className="pointer-events-none absolute -inset-px -z-10 rounded-2xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 blur-2xl" />
+              <div className="pointer-events-none absolute -inset-px -z-10 rounded-2xl bg-linear-to-br from-sky-500/20 to-indigo-500/20 blur-2xl" />
 
               <h3 className="mb-2 text-xl font-bold text-white">
                 Send a Message
@@ -377,7 +377,7 @@ export default function ContactForm() {
                   id="contact-message"
                   name="message"
                   placeholder="Your message.."
-                  className={`${field} min-h-[140px] resize-y`}
+                  className={`${field} min-h-35 resize-y`}
                   value={form.message}
                   onChange={onChange}
                   required
@@ -405,7 +405,7 @@ export default function ContactForm() {
                 className={`group relative w-full overflow-hidden rounded-xl px-6 py-3 text-sm font-semibold text-white transition
               ${
                 canSubmit
-                  ? "bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 shadow-lg shadow-sky-500/50"
+                  ? "bg-linear-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 shadow-lg shadow-sky-500/50"
                   : "cursor-not-allowed bg-neutral-700"
               }`}
               >
@@ -413,7 +413,7 @@ export default function ContactForm() {
                   <Send className="h-4 w-4" />
                   {sending ? "Sending…" : "Send Message"}
                 </span>
-                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition group-hover:translate-x-0" />
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition group-hover:translate-x-0" />
               </button>
 
               {status && (
@@ -445,7 +445,7 @@ export default function ContactForm() {
               ${
                 copied
                   ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-300"
-                  : "border-white/10 bg-white/[0.05] text-neutral-200 hover:bg-white/[0.08] hover:border-sky-500/30"
+                  : "border-white/10 bg-white/5 text-neutral-200 hover:bg-white/8 hover:border-sky-500/30"
               }`}
                 title={EMAIL}
               >

@@ -14,6 +14,7 @@ import {
   User,
   Briefcase,
   ChevronDown,
+  MessageCircle,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -21,6 +22,7 @@ const navItems = [
   { href: "/admin", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/admin/hero", icon: Home, label: "Hero" },
   { href: "/admin/about", icon: User, label: "About" },
+  { href: "/admin/comments", icon: MessageCircle, label: "Comments" },
 ];
 
 const portfolioItems = [
@@ -77,7 +79,7 @@ export default function AdminLayoutContent({
         <div className="flex flex-col h-full">
           {/* Logo/Header */}
           <div className="p-6 border-b border-white/10">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-linear-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
               Admin Panel
             </h1>
             <p className="text-sm text-neutral-400 mt-1">Admin User</p>

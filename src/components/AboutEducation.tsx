@@ -101,7 +101,7 @@ export default function AboutEducation() {
         {/* Heading & Subtitle */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 via-indigo-400 to-purple-500">
               {aboutData.heading}
             </span>
           </h2>
@@ -130,7 +130,7 @@ export default function AboutEducation() {
               className="text-3xl md:text-4xl font-bold text-white"
             >
               Hello, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 to-indigo-500">
                 {aboutData.name}
               </span>
             </motion.h3>
@@ -171,7 +171,7 @@ export default function AboutEducation() {
                 <a
                   href={aboutData.cvUrl}
                   download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-semibold rounded-lg hover:from-sky-600 hover:to-indigo-600 transition-all shadow-lg hover:shadow-sky-500/50"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-sky-500 to-indigo-500 text-white font-semibold rounded-lg hover:from-sky-600 hover:to-indigo-600 transition-all shadow-lg hover:shadow-sky-500/50"
                 >
                   <Download className="h-5 w-5" />
                   View CV
@@ -240,13 +240,13 @@ export default function AboutEducation() {
           >
             <div className="relative">
               {/* Outer rotating gradient ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 opacity-75 blur-md animate-[spin_8s_linear_infinite]" />
+              <div className="absolute inset-0 rounded-full bg-linear-to-rrom-sky-500 via-indigo-500 to-purple-500 opacity-75 blur-md animate-[spin_8s_linear_infinite]" />
 
               {/* Middle glow */}
-              <div className="absolute inset-2 rounded-full bg-gradient-to-br from-sky-400/30 to-indigo-600/30 blur-xl" />
+              <div className="absolute inset-2 rounded-full bg-linear-to-br from-sky-400/30 to-indigo-600/30 blur-xl" />
 
               {/* Photo container */}
-              <div className="relative h-72 w-72 md:h-96 md:w-96 rounded-full p-2 bg-gradient-to-br from-sky-500/20 to-indigo-500/20 backdrop-blur-sm">
+              <div className="relative h-72 w-72 md:h-96 md:w-96 rounded-full p-2 bg-linear-to-br from-sky-500/20 to-indigo-500/20 backdrop-blur-sm">
                 <div className="relative h-full w-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
                   <Image
                     src={aboutData.photo}
@@ -258,7 +258,7 @@ export default function AboutEducation() {
                     className="object-cover"
                   />
                   {/* Inner gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-neutral-900/20 via-transparent to-transparent" />
                 </div>
               </div>
 

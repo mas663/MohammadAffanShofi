@@ -146,7 +146,7 @@ export default function AdminPage() {
       {/* Welcome Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent flex items-center gap-3">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent flex items-center gap-3">
             <Sparkles className="w-8 h-8 text-sky-400" />
             Dashboard Overview
           </h1>
@@ -173,7 +173,7 @@ export default function AdminPage() {
             >
               {/* Gradient Background Effect */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity`}
+                className={`absolute inset-0 bg-linear-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity`}
               />
 
               <div className="relative flex items-start justify-between">
@@ -187,9 +187,7 @@ export default function AdminPage() {
                     <span className="font-medium">{stat.trend}</span>
                   </div>
                 </div>
-                <div
-                  className={`p-3 rounded-xl bg-gradient-to-br ${stat.color}`}
-                >
+                <div className={`p-3 rounded-xl bg-linear-to-br ${stat.color}`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -201,7 +199,7 @@ export default function AdminPage() {
       {/* Quick Actions */}
       <div>
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <div className="w-1 h-6 bg-gradient-to-b from-sky-400 to-indigo-400 rounded-full" />
+          <div className="w-1 h-6 bg-linear-to-b from-sky-400 to-indigo-400 rounded-full" />
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -211,16 +209,16 @@ export default function AdminPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 backdrop-blur-sm overflow-hidden transition-all hover:scale-[1.02] hover:shadow-lg"
+                className="group relative p-6 rounded-xl bg-white/2 border border-white/10 hover:border-white/20 backdrop-blur-sm overflow-hidden transition-all hover:scale-[1.02] hover:shadow-lg"
               >
                 {/* Gradient Accent */}
                 <div
-                  className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${link.color} opacity-50 group-hover:opacity-100 transition-opacity`}
+                  className={`absolute top-0 left-0 w-full h-1 bg-linear-to-r ${link.color} opacity-50 group-hover:opacity-100 transition-opacity`}
                 />
 
                 <div className="flex items-start gap-4">
                   <div
-                    className={`p-3 rounded-xl bg-gradient-to-br ${link.color} shadow-lg`}
+                    className={`p-3 rounded-xl bg-linear-to-br ${link.color} shadow-lg`}
                   >
                     <Icon className="w-5 h-5 text-white" />
                   </div>
@@ -241,9 +239,9 @@ export default function AdminPage() {
       </div>
 
       {/* Recent Activity Preview */}
-      <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm">
+      <div className="p-6 rounded-2xl bg-white/2 border border-white/10 backdrop-blur-sm">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <div className="w-1 h-6 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full" />
+          <div className="w-1 h-6 bg-linear-to-b from-purple-400 to-pink-400 rounded-full" />
           Getting Started
         </h2>
         <div className="space-y-3">

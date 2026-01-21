@@ -9,6 +9,7 @@ export default function Header() {
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Portofolio", href: "#portfolio" },
+    { label: "Comments", href: "#comments" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -69,12 +70,12 @@ export default function Header() {
   const whenInactive = "text-neutral-300 after:w-0";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/30 backdrop-blur-xl supports-[backdrop-filter]:bg-neutral-950/20 shadow-lg shadow-black/5">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/30 backdrop-blur-xl supports-backdrop-filter:bg-neutral-950/20 shadow-lg shadow-black/5">
       <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-5">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg blur opacity-20"></div>
-            <span className="relative text-lg font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-purple-500 rounded-lg blur opacity-20"></div>
+            <span className="relative text-lg font-bold bg-linear-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Mohammad Affan Shofi
             </span>
           </div>

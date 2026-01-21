@@ -85,7 +85,7 @@ export default function Hero() {
 
   if (loading || !profile) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-950 via-sky-950/20 to-neutral-950">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-neutral-950 via-sky-950/20 to-neutral-950">
         <p className="text-neutral-400">Loading...</p>
       </section>
     );
@@ -99,7 +99,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-neutral-950 via-sky-950/20 to-neutral-950"
+      className="relative min-h-screen flex items-center overflow-hidden bg-linear-to-br from-neutral-950 via-sky-950/20 to-neutral-950"
     >
       {/* Animated background with parallax */}
       <motion.div
@@ -151,7 +151,7 @@ export default function Hero() {
             <div className="space-y-2">
               <h1 className="text-5xl md:text-7xl font-black tracking-tight">
                 {firstWord}{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 to-indigo-500">
                   {restWords}
                 </span>
               </h1>
@@ -238,10 +238,10 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-3xl blur-2xl opacity-20 animate-pulse" />
+              <div className="absolute -inset-4 bg-linear-to-r from-sky-500 to-indigo-500 rounded-3xl blur-2xl opacity-20 animate-pulse" />
 
               {/* Card */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-1 backdrop-blur-sm">
+              <div className="relative rounded-3xl bg-linear-to-br from-white/10 to-white/5 p-1 backdrop-blur-sm">
                 <div className="rounded-3xl bg-neutral-900/90 p-8">
                   <div className="relative h-64 w-64 md:h-80 md:w-80">
                     <Image
